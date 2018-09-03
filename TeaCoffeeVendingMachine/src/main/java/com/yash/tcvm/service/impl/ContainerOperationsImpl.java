@@ -59,7 +59,7 @@ public class ContainerOperationsImpl implements IProductContainerService {
 			product.setWaterContainerCapacity(product.getWaterContainerCapacity() - (quantity * 100 + quantity * 12));
 			product.setSugarContainerCapacity(product.getSugarContainerCapacity() - (quantity * 15 + quantity * 3));
 
-			product.setTeaWasteAmount(product.getTeaWasteAmount() + quantity * 0);
+	
 			product.setWaterWasteAmount(product.getWaterWasteAmount() + quantity * 12);
 			product.setSugarWasteAmount(product.getSugarWasteAmount() + quantity * 2);
 
@@ -81,7 +81,6 @@ public class ContainerOperationsImpl implements IProductContainerService {
 			product.setSugarContainerCapacity(product.getSugarContainerCapacity() - (quantity * 15 + quantity * 2));
 			product.setWaterContainerCapacity(product.getWaterContainerCapacity() - (quantity * 100 + quantity * 12));
 
-			product.setCoffeeWasteAmount(product.getCoffeeWasteAmount() + quantity * 0);
 			product.setSugarWasteAmount(product.getSugarWasteAmount() + quantity * 2);
 			product.setWaterWasteAmount(product.getWaterWasteAmount() + quantity * 12);
 
@@ -131,7 +130,7 @@ public class ContainerOperationsImpl implements IProductContainerService {
 				product.setSugarContainerCapacity(8000);
 				System.out.println("Successfully Refilled");
 			} else {
-				throw new RuntimeException("our exception");
+				throw new RuntimeException();
 			}
 		} catch (RuntimeException e) {
 			System.out.println("Container will Overflow!!");

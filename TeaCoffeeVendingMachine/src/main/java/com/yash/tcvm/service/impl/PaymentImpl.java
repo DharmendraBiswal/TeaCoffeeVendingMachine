@@ -8,7 +8,10 @@ public class PaymentImpl implements IPaymentService {
 	public double calculatePriceForOrder(String orderType, Double costPerCup, Integer orderQuantity,
 			Integer insertedAmount) {
 
-		return costPerCup * orderQuantity - insertedAmount;
+		
+		
+		System.out.println((costPerCup * orderQuantity) - Double.valueOf(String.valueOf(insertedAmount)));
+		return (costPerCup * orderQuantity) - Double.parseDouble(String.valueOf(insertedAmount));
 
 	}
 

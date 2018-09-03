@@ -188,15 +188,34 @@ public class CustomerOrderTest {
 	}
 
 	@Test
-	public void getMenuShouldAskForCorrectAmountWhenInvalidAmountIsInserted() {
+	public void getMenuShouldReturnExtraAmountWhenInserted() {
 
 		Product product1 = new Product();
-
-		Mockito.when(containerOperations.checkAvailabilty("Tea", 1, product1)).thenReturn(true);
-		Mockito.when(payBill.calculatePriceForOrder("Tea", 10.0, 1, 10)).thenReturn(2.0);
-		Mockito.doNothing().when(containerOperations).adjustContainerQuantity("Tea", 1, product1);
+		
 		Mockito.when(inputScanner.nextInt()).thenReturn(1).thenReturn(1).thenReturn(12).thenReturn(1);
+		Mockito.when(containerOperations.checkAvailabilty("Tea", 1, product1)).thenReturn(true);
+		Mockito.when(payBill.calculatePriceForOrder("Tea", 10.0, 1, 12)).thenReturn(2.0);
+		Mockito.doNothing().when(containerOperations).adjustContainerQuantity("Tea", 1, product1);
+		
 		customerOrder.getMenu(product1);
+	}
+	
+	@Test
+	public void shouldReturnCustomerOrder(){
+		CustomerOrder customer = new CustomerOrder();
+	}
+	
+	@Test
+	public void shouldExitFromSystemCustomerOrder(){
+		
+		Product product1 = new Product();
+		Mockito.when(inputScanner.nextInt()).thenReturn(9);
+		
+		customerOrder.getMenu(product1);
+		
+		
+		
+		
 	}
 
 }

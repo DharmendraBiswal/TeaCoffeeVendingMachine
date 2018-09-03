@@ -14,17 +14,15 @@ import com.yash.tcvm.service.impl.PaymentImpl;
 
 public class CustomerOrder {
 
-	Integer totalQuantitySold = 0;
+	private Integer totalQuantitySold = 0;
 
-	Double total = 0.0;
+	private Double total = 0.0;
 
-	Integer insertedAmount = 0;
+	private Integer insertedAmount = 0;
 
-	Double returnedAmount = 0.0;
+	private Double returnedAmount = 0.0;
 
-	Double requiredAmount = 0.0;
-
-	Integer refillOption = 0;
+	private Integer refillOption = 0;
 
 	InputScanner inputScanner = new InputScanner();
 
@@ -69,7 +67,7 @@ public class CustomerOrder {
 
 						System.out.println("Drink successfully served");
 
-						if (returnedAmount < 0)
+						if (Math.abs(returnedAmount) > 0.0)
 							System.out.println("Please collect your change:" + Math.abs(returnedAmount));
 
 						totalQuantitySold = totalQuantitySold + orderQuantity;
@@ -183,8 +181,7 @@ public class CustomerOrder {
 			break;
 		case 9:
 			System.out.println("Thank you for your visit");
-			askToShowMenuAgain(product);
-			System.exit(0);
+			break;
 
 		default:
 			System.out.println("You have entered invalid option!");
