@@ -4,10 +4,11 @@ import com.yash.tcvm.dao.Product;
 
 public class TeaCoffeeVendingMachine {
 
+	private static Product product = new Product();
+	
+	private static CustomerOrder customerOrder = new CustomerOrder();
+	
 	public static void main(String[] args) {
-		Product product = new Product();
-
-		CustomerOrder customerOrder = new CustomerOrder();
 		customerOrder.getMenu(product);
 
 	}
